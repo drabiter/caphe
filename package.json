@@ -1,0 +1,28 @@
+{
+  "name": "coru",
+  "version": "0.0.1",
+  "description": "various design utils",
+  "main": "lib/coru.coffee",
+  "scripts": {
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha -C --recursive --compilers coffee:coffee-script/register test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drabiter/coru"
+  },
+  "keywords": [
+    "coffeescript",
+    "ruby"
+  ],
+  "author": "Hendra G.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/drabiter/coru/issues"
+  },
+  "devDependencies": {
+    "mocha": "^1.18.2",
+    "chai": "^1.9.1",
+    "sinon": "^1.9.1"
+  },
+  "homepage": "https://github.com/drabiter/coru"
+}
