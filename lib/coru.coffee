@@ -8,4 +8,8 @@ class Coru
     consumer
 
 
-module.exports = coru
+  @include: (module...) ->
+    @mixin(@::, module...)
+
+
+module.exports = Coru
