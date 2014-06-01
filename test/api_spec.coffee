@@ -2,25 +2,23 @@ expect = require("chai").expect
 Coru = require("../lib/coru")
 
 
+shouldEncapsule = (methodName) ->
+  it "shows as class method", ->
+    expect(Coru[methodName]?).to.be.true
+
+  it "shows as instance method", ->
+    coru = new Coru()
+    expect(coru[methodName]?).to.be.false
+
+  it "doesn't show as prototype method", ->
+    expect(Coru::[methodName]?).to.be.false
+
 describe "API", ->
   describe "mixin", ->
-    it "shows as class method", ->
-      expect(Coru.mixin).to.be.defined
-
-    it "shows as instance method", ->
-      coru = new Coru()
-      expect(coru.mixin).to.be.defined
-
-    it "doesn't show as prototype method", ->
-      expect(Coru::mixin).to.be.not.defined
+    shouldEncapsule("mixin")
 
   describe "include", ->
-    it "shows as class method", ->
-      expect(Coru.include).to.be.defined
+    shouldEncapsule("include")
 
-    it "shows as instance method", ->
-      coru = new Coru()
-      expect(coru.include).to.be.defined
-
-    it "doesn't show as prototype method", ->
-      expect(Coru::include).to.be.not.defined
+  describe "attrAccessor", ->
+    shouldEncapsule("attrAccessor")
