@@ -13,6 +13,12 @@ class Caphe
 
 
   @attrAccessor: (fields...) ->
+    @_createGetterSetter(fields...)
+
+
+  # private
+
+  @_createGetterSetter: (fields...) ->
     _methods = {}
     for field in fields
       titleized = Caphe::titleize(field)
@@ -21,6 +27,13 @@ class Caphe
 
     @_privateMixin(@::, _methods)
 
+  @_privateMixin: (consumer, providers...) ->
+    for provider in providers
+      _privateProperties = Object.create(null)
+      for k, v of provider
+        consumer[k] = v.bind(_privateProperties) if provider.hasOwnProperty(k)
+
+    consumer
 
   @CONST: (constants) ->
     for key, value of constants
