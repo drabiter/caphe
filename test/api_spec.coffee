@@ -1,17 +1,17 @@
 expect = require("chai").expect
-Coru = require("../lib/coru")
+Caphe = require("../lib/caphe")
 
 
 shouldEncapsule = (methodName) ->
   it "shows as class method", ->
-    expect(Coru[methodName]?).to.be.true
+    expect(Caphe[methodName]?).to.be.true
 
   it "shows as instance method", ->
-    coru = new Coru()
-    expect(coru[methodName]?).to.be.false
+    caphe = new Caphe()
+    expect(caphe[methodName]?).to.be.false
 
   it "doesn't show as prototype method", ->
-    expect(Coru::[methodName]?).to.be.false
+    expect(Caphe::[methodName]?).to.be.false
 
 describe "API", ->
   describe "mixin", ->
@@ -22,3 +22,6 @@ describe "API", ->
 
   describe "attrAccessor", ->
     shouldEncapsule("attrAccessor")
+
+  describe "CONST", ->
+    shouldEncapsule("CONST")

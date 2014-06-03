@@ -1,14 +1,14 @@
 {
-  "name": "coru",
+  "name": "caphe",
   "version": "0.0.1",
   "description": "various design utils",
-  "main": "lib/coru.coffee",
+  "main": "lib/caphe.coffee",
   "scripts": {
-    "test": "coffee -c lib/coru.coffee && NODE_ENV=test ./node_modules/.bin/mocha -C --recursive --compilers coffee:coffee-script/register test/"
+    "test": "coffee -c lib/caphe.coffee && NODE_ENV=test ./node_modules/.bin/mocha -C --recursive --compilers coffee:coffee-script/register test/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/drabiter/coru"
+    "url": "https://github.com/drabiter/caphe"
   },
   "keywords": [
     "coffeescript",
@@ -17,12 +17,12 @@
   "author": "Hendra G.",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/drabiter/coru/issues"
+    "url": "https://github.com/drabiter/caphe/issues"
   },
   "devDependencies": {
     "mocha": "^1.18.2",
     "chai": "^1.9.1",
     "sinon": "^1.9.1"
   },
-  "homepage": "https://github.com/drabiter/coru"
+  "homepage": "https://github.com/drabiter/caphe"
 }

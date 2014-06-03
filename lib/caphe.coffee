@@ -1,18 +1,9 @@
-class Coru
+class Caphe
 
   @mixin: (consumer, providers...) ->
     for provider in providers
       for k, v of provider
         consumer[k] = v if provider.hasOwnProperty(k)
-
-    consumer
-
-
-  @_privateMixin: (consumer, providers...) ->
-    for provider in providers
-      _privateProperties = Object.create(null)
-      for k, v of provider
-        consumer[k] = v.bind(_privateProperties) if provider.hasOwnProperty(k)
 
     consumer
 
@@ -24,12 +15,22 @@ class Coru
   @attrAccessor: (fields...) ->
     _methods = {}
     for field in fields
-      titleized = Coru::titleize(field)
-      _methods["get#{titleized}"] = Coru::_createGetter(field)
-      _methods["set#{titleized}"] = Coru::_createSetter(field)
+      titleized = Caphe::titleize(field)
+      _methods["get#{titleized}"] = Caphe::_createGetter(field)
+      _methods["set#{titleized}"] = Caphe::_createSetter(field)
 
     @_privateMixin(@::, _methods)
 
+
+  # private
+
+  @_privateMixin: (consumer, providers...) ->
+    for provider in providers
+      _privateProperties = Object.create(null)
+      for k, v of provider
+        consumer[k] = v.bind(_privateProperties) if provider.hasOwnProperty(k)
+
+    consumer
 
   _createGetter: (field) ->
     () ->
@@ -43,4 +44,4 @@ class Coru
     str.charAt(0).toUpperCase() + str.substring(1)
 
 
-module.exports = Coru
+module.exports = Caphe

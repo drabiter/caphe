@@ -1,5 +1,5 @@
 expect = require("chai").expect
-Coru = require("../lib/coru")
+Caphe = require("../lib/caphe")
 
 
 describe "Include", ->
@@ -10,7 +10,7 @@ describe "Include", ->
 
   it "assigns methods of module to the user class", ->
     myModule = @module
-    class Person extends Coru
+    class Person extends Caphe
       @include myModule
 
       constructor: (@name, @age, @city) ->
@@ -25,7 +25,7 @@ describe "Include", ->
       shortDescription: ->
         "#{@name} (#{@age}), #{@city}"
 
-    class Person extends Coru
+    class Person extends Caphe
       @include firstModule, secondModule
 
       constructor: (@name, @age, @city) ->

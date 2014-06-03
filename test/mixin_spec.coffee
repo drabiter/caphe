@@ -1,5 +1,5 @@
 expect = require("chai").expect
-mixin = require("../lib/coru").mixin
+mixin = require("../lib/caphe").mixin
 
 
 describe "Mixin", ->
