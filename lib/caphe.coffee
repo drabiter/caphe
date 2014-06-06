@@ -22,6 +22,11 @@ class Caphe
     @_privateMixin(@::, _methods)
 
 
+  @CONST: (constants) ->
+    for key, value of constants
+      @::[key.toUpperCase()] = Caphe::_createConstantMethod(value)
+
+
   # private
 
   @_privateMixin: (consumer, providers...) ->
@@ -33,12 +38,13 @@ class Caphe
     consumer
 
   _createGetter: (field) ->
-    () ->
-      @[field]
+    () -> @[field]
 
   _createSetter: (field) ->
-    (value) ->
-      @[field] = value
+    (value) -> @[field] = value
+
+  _createConstantMethod: (value) ->
+    () -> value
 
   titleize: (str) ->
     str.charAt(0).toUpperCase() + str.substring(1)
