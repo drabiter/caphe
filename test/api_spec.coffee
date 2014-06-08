@@ -28,3 +28,6 @@ describe "API", ->
 
   describe "forward", ->
     shouldEncapsule("forward")
+
+  describe "delegate", ->
+    shouldEncapsule("delegate")

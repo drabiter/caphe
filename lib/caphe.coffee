@@ -30,6 +30,15 @@ class Caphe
     consumer
 
 
+  @delegate: (consumer, providers...) ->
+    for provider in providers
+      for k, v of provider
+        if provider.hasOwnProperty(k)
+          consumer[k] = Caphe::_createDelegateMethod(consumer, k, provider)
+
+    consumer
+
+
   # private
 
   @_createGetterSetter: (fields...) ->
@@ -60,6 +69,9 @@ class Caphe
 
   _createForwardMethod: (funcName, provider) ->
     () -> provider[funcName].apply(provider, arguments)
+
+  _createDelegateMethod: (consumer, funcName, provider) ->
+    () -> provider[funcName].apply(consumer, arguments)
 
   titleize: (str) ->
     str.charAt(0).toUpperCase() + str.substring(1)
