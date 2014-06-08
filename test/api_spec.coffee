@@ -25,3 +25,6 @@ describe "API", ->
 
   describe "CONST", ->
     shouldEncapsule("CONST")
+
+  describe "forward", ->
+    shouldEncapsule("forward")
