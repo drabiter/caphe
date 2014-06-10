@@ -1,11 +1,11 @@
 Caphe
 =====
 
-Various design utils for [htpp://coffeescript.org](CoffeeScript).
+Various design utils for [htpp://coffeescript.org](CoffeeScript). Implementation of Reg Braithwaite's [article](http://raganwald.com/2014/04/10/mixins-forwarding-delegation.html).
 
 ## Features
 
-**mixin**
+**mixin** consumer, modules...
 
 Mix modules' behaviors to the model.
 ```
@@ -30,7 +30,7 @@ person.walk(8) # "Walk by 8"
 person.run(5)  # "Run by 5"
 ```
 
-**include**
+**include** names...
 
 Like mixin but do it Ruby style.
 ```
@@ -42,7 +42,7 @@ person = new Person()
 
 # `person` has speak(), run(), walk() functions now
 
-**attrAccessor**
+**attrAccessor** names...
 
 Create getter & setter methods in Ruby style and hide the properties from public access.
 ```
@@ -60,3 +60,40 @@ person.setAge(5)
 person.getAge()         # 5
 person.age              # undefined
 person.job              # Bar
+
+**CONST** {name:value, ...}
+
+Create constant getters in prototype level.
+```
+class Person extends Caphe
+  @CONST EYE: 2, SPECIES: 'homo sapiens'
+
+Person::EYE()      # 2
+Person::SPECIES()  # homo sapiens
+
+**forward** consumer, providers...
+
+Mixin with late bound. The forwarded methods have each own module as their context.
+```
+module.foo = -> console.log "a"
+module.bar = -> console.log @name
+Caphe.forward(person, module)
+person.foo()  # a
+person.bar()  # undefined
+
+module.bar = -> console.log "b"
+person.bar()  # b
+
+**delegate** consumer, providers...
+
+Like `#forward`, but the forwarded methods have the consumer as their context.
+```
+person.name = "John"
+module.foo = -> console.log "a"
+module.bar = -> console.log @name
+Caphe.forward(person, module)
+person.foo()  # a
+person.bar()  # John
+
+module.foo = -> console.log "b"
+person.foo()  # b
