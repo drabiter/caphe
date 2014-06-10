@@ -7,7 +7,7 @@ Various design utils for [htpp://coffeescript.org](CoffeeScript). Implementation
 
 **mixin** consumer, modules...
 
-Mix modules' behaviors to the model.
+Mix modules' methods to the model.
 ```
 class Person
 
