@@ -12,7 +12,10 @@
   },
   "keywords": [
     "coffeescript",
-    "ruby"
+    "forward",
+    "delegate",
+    "mixin",
+    "include"
   ],
   "author": "Hendra G.",
   "license": "MIT",
@@ -20,9 +23,9 @@
     "url": "https://github.com/drabiter/caphe/issues"
   },
   "devDependencies": {
-    "mocha": "^1.18.2",
-    "chai": "^1.9.1",
-    "sinon": "^1.9.1"
+    "mocha": "1.18.2",
+    "chai": "1.9.1",
+    "sinon": "1.9.1"
   },
   "homepage": "https://github.com/drabiter/caphe"
 }
