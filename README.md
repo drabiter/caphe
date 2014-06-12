@@ -29,6 +29,7 @@ person.speak() # "Yeah!"
 person.walk(8) # "Walk by 8"
 person.run(5)  # "Run by 5"
 ```
+----------
 
 **include** names...
 
@@ -41,13 +42,15 @@ class Person extends Caphe
 person = new Person()
 
 # `person` has speak(), run(), walk() functions now
+```
+----------
 
 **attrAccessor** names...
 
 Create getter & setter methods in Ruby style and hide the properties from public access.
 ```
 class Person extends Caphe
-  @attrReader "name", "age"
+  @attrAccessor "name", "age"
 
   constructor: (@job) ->
 
@@ -60,8 +63,10 @@ person.setAge(5)
 person.getAge()         # 5
 person.age              # undefined
 person.job              # Bar
+```
+----------
 
-**CONST** {name:value, ...}
+**CONST** name: value, ...
 
 Create constant getters in prototype level.
 ```
@@ -70,6 +75,8 @@ class Person extends Caphe
 
 Person::EYE()      # 2
 Person::SPECIES()  # homo sapiens
+```
+----------
 
 **forward** consumer, providers...
 
@@ -83,6 +90,8 @@ person.bar()  # undefined
 
 module.bar = -> console.log "b"
 person.bar()  # b
+```
+----------
 
 **delegate** consumer, providers...
 
@@ -97,3 +106,5 @@ person.bar()  # John
 
 module.foo = -> console.log "b"
 person.foo()  # b
+```
+----------
