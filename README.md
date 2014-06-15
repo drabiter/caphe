@@ -25,6 +25,7 @@ Moveable =
 
 Caphe.mixin(person, Talkable, Moveable)
 
+
 person.speak() # "Yeah!"
 person.walk(8) # "Walk by 8"
 person.run(5)  # "Run by 5"
@@ -41,7 +42,10 @@ class Person extends Caphe
 
 person = new Person()
 
-# `person` has speak(), run(), walk() functions now
+
+person.speak() # "Yeah!"
+person.walk(8) # "Walk by 8"
+person.run(5)  # "Run by 5"
 ```
 ----------
 
@@ -53,6 +57,7 @@ class Person extends Caphe
   @attrAccessor "name", "age"
 
   constructor: (@job) ->
+
 
 person = new Person("Bar")
 person.setName("Foo")
@@ -73,6 +78,7 @@ Create constant getters in prototype level.
 class Person extends Caphe
   @CONST EYE: 2, SPECIES: 'homo sapiens'
 
+
 Person::EYE()      # 2
 Person::SPECIES()  # homo sapiens
 ```
@@ -85,6 +91,8 @@ Mixin with late bound. The forwarded methods have each own module as their conte
 module.foo = -> console.log "a"
 module.bar = -> console.log @name
 Caphe.forward(person, module)
+
+
 person.foo()  # a
 person.bar()  # undefined
 
@@ -101,6 +109,8 @@ person.name = "John"
 module.foo = -> console.log "a"
 module.bar = -> console.log @name
 Caphe.forward(person, module)
+
+
 person.foo()  # a
 person.bar()  # John
 
