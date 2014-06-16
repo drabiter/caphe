@@ -5,7 +5,7 @@ Various design utils for [htpp://coffeescript.org](CoffeeScript). Implementation
 
 ## Features
 
-**mixin** consumer, modules...
+**> mixin** consumer, modules...
 
 Mix modules' methods to the model.
 ```
@@ -32,7 +32,7 @@ person.run(5)  # "Run by 5"
 ```
 ----------
 
-**include** names...
+**> include** names...
 
 Like mixin but do it Ruby style.
 ```
@@ -49,7 +49,7 @@ person.run(5)  # "Run by 5"
 ```
 ----------
 
-**attrAccessor** names...
+**> attrAccessor** names...
 
 Create getter & setter methods in Ruby style and hide the properties from public access.
 ```
@@ -71,7 +71,7 @@ person.job              # Bar
 ```
 ----------
 
-**CONST** name: value, ...
+**> CONST** name: value, ...
 
 Create constant getters in prototype level.
 ```
@@ -84,7 +84,7 @@ Person::SPECIES()  # homo sapiens
 ```
 ----------
 
-**forward** consumer, providers...
+**> forward** consumer, providers...
 
 Mixin with late bound. The forwarded methods have each own module as their context.
 ```
@@ -101,7 +101,7 @@ person.bar()  # b
 ```
 ----------
 
-**delegate** consumer, providers...
+**> delegate** consumer, providers...
 
 Like `#forward`, but the forwarded methods have the consumer as their context.
 ```
