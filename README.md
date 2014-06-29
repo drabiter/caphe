@@ -108,7 +108,7 @@ Like `#forward`, but the forwarded methods have the consumer as their context.
 person.name = "John"
 module.foo = -> console.log "a"
 module.bar = -> console.log @name
-Caphe.forward(person, module)
+Caphe.delegate(person, module)
 
 
 person.foo()  # a
