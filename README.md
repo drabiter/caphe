@@ -8,7 +8,7 @@ Various design utils for [htpp://coffeescript.org](CoffeeScript). Implementation
 **> mixin** consumer, modules...
 
 Mix modules' methods to the model.
-```
+```coffeescript
 class Person
 
 person = new Person()
@@ -35,7 +35,7 @@ person.run(5)  # "Run by 5"
 **> include** names...
 
 Like mixin but do it Ruby style.
-```
+```coffeescript
 # Refer to previous example
 class Person extends Caphe
   @include Talkable, Moveable
@@ -52,7 +52,7 @@ person.run(5)  # "Run by 5"
 **> attrAccessor** names...
 
 Create getter & setter methods in Ruby style and hide the properties from public access.
-```
+```coffeescript
 class Person extends Caphe
   @attrAccessor "name", "age"
 
@@ -74,7 +74,7 @@ person.job              # Bar
 **> CONST** name: value, ...
 
 Create constant getters in prototype level.
-```
+```coffeescript
 class Person extends Caphe
   @CONST EYE: 2, SPECIES: 'homo sapiens'
 
@@ -87,7 +87,7 @@ Person::SPECIES()  # homo sapiens
 **> forward** consumer, providers...
 
 Mixin with late bound. The forwarded methods have each own module as their context.
-```
+```coffeescript
 module.foo = -> console.log "a"
 module.bar = -> console.log @name
 Caphe.forward(person, module)
@@ -104,7 +104,7 @@ person.bar()  # b
 **> delegate** consumer, providers...
 
 Like `#forward`, but the forwarded methods have the consumer as their context.
-```
+```coffeescript
 person.name = "John"
 module.foo = -> console.log "a"
 module.bar = -> console.log @name
