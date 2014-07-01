@@ -9,6 +9,8 @@ describe "Include", ->
     @module =
       fullDescription: ->
         "#{@name} - #{@age} from #{@city}"
+      anotherDescription: ->
+        "#{@name} of #{@city}"
 
   describe "visibility", ->
     methodVisibility("include")
@@ -23,6 +25,7 @@ describe "Include", ->
     person = new Person("Foo", 10, "Bar")
 
     expect(person.fullDescription()).to.eq("Foo - 10 from Bar")
+    expect(person.anotherDescription()).to.eq("Foo of Bar")
 
   it "recieves multiple modules", ->
     firstModule = @module
@@ -39,3 +42,4 @@ describe "Include", ->
 
     expect(person.fullDescription()).to.eq("Foo - 10 from Bar")
     expect(person.shortDescription()).to.eq("Foo (10), Bar")
+    expect(person.anotherDescription()).to.eq("Foo of Bar")
