@@ -1,12 +1,17 @@
 expect = require("chai").expect
 Caphe = require("../lib/caphe")
 
+methodVisibility = require("./helper/shared_test").methodVisibility
+
 
 describe "Include", ->
   beforeEach ->
     @module =
       fullDescription: ->
         "#{@name} - #{@age} from #{@city}"
+
+  describe "visibility", ->
+    methodVisibility("include")
 
   it "assigns methods of module to the user class", ->
     myModule = @module

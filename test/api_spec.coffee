@@ -11,7 +11,7 @@ shouldEncapsule = (methodName) ->
     expect(caphe[methodName]?).to.be.false
 
   it "doesn't show as prototype method", ->
-    expect(Caphe::[methodName]?).to.be.false
+    expect(Caphe.prototype[methodName]?).to.be.false
 
 describe "API", ->
   describe "mixin", ->

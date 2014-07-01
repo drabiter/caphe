@@ -1,6 +1,8 @@
 expect = require("chai").expect
 Caphe = require("../lib/caphe")
 
+methodVisibility = require("./helper/shared_test").methodVisibility
+
 
 describe "AttrAccessor", ->
   beforeEach ->
@@ -12,6 +14,9 @@ describe "AttrAccessor", ->
     @person = new Person("Bar", "Baz")
     @person.setName("Foo")
     @person.setAge(2)
+
+  describe "visibility", ->
+    methodVisibility("attrAccessor")
 
   it "creates getter setter for listed variables", ->
     expect(@person.getAge()).to.eq(2)
