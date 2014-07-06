@@ -8,8 +8,10 @@ class Caphe
     consumer
 
 
-  @include: (module) ->
-    @mixin(@prototype, module)
+  @include: (module, names...) ->
+    _ = {}
+    _[name] = module[name] for name in names
+    @mixin(@prototype, if names.length is 0 then module else _)
 
 
   @attrAccessor: (fields...) ->

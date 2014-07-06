@@ -15,7 +15,7 @@ describe "Include", ->
   describe "visibility", ->
     methodVisibility("include")
 
-  it "assigns methods of module to the user class", ->
+  it "assigns all methods of module to the user class", ->
     myModule = @module
     class Person extends Caphe
       @include myModule
@@ -27,3 +27,14 @@ describe "Include", ->
     expect(person.fullDescription()).to.eq("Foo - 10 from Bar")
     expect(person.anotherDescription()).to.eq("Foo of Bar")
 
+  it "receives partial methods", ->
+    myModule = @module
+    class Person extends Caphe
+      @include myModule, 'anotherDescription'
+
+      constructor: (@name, @age, @city) ->
+
+    person = new Person("Foo", 10, "Bar")
+
+    expect(person.fullDescription).to.be.undefined
+    expect(person.anotherDescription).to.not.be.undefined
