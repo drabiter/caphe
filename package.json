@@ -1,6 +1,6 @@
 {
   "name": "caphe",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "various design utils",
   "main": "lib/caphe.coffee",
   "scripts": {
