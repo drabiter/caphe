@@ -44,7 +44,7 @@ class Caphe
   @_createGetterSetter: (fields...) ->
     _methods = {}
     for field in fields
-      titleized = Caphe.prototype.titleize(field)
+      titleized = Caphe.prototype._titleize(field)
       _methods["get#{titleized}"] = Caphe.prototype._createGetter(field)
       _methods["set#{titleized}"] = Caphe.prototype._createSetter(field)
 
@@ -73,8 +73,11 @@ class Caphe
   _createDelegateMethod: (consumer, funcName, provider) ->
     () -> provider[funcName].apply(consumer, arguments)
 
-  titleize: (str) ->
+  _titleize: (str) ->
     str.charAt(0).toUpperCase() + str.substring(1)
+
+  # _typeName: (param) ->
+  #   return Object.prototype.toString.call(param).match(/\s([a-z|A-Z]+)/)[1].toLowerCase()
 
 
 module.exports = Caphe
