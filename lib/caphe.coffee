@@ -8,8 +8,8 @@ class Caphe
     consumer
 
 
-  @include: (modules...) ->
-    @mixin(@prototype, modules...)
+  @include: (module) ->
+    @mixin(@prototype, module)
 
 
   @attrAccessor: (fields...) ->

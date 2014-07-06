@@ -32,20 +32,21 @@ person.run(5)  # "Run by 5"
 ```
 ----------
 
-**> include** names...
+**> include** module
 
 Like mixin but do it Ruby style.
 ```coffeescript
-# Refer to previous example
+Talkable =
+  speak: ->
+    console.log "Yeah!"
+
 class Person extends Caphe
-  @include Talkable, Moveable
+  @include Talkable
 
 person = new Person()
 
 
 person.speak() # "Yeah!"
-person.walk(8) # "Walk by 8"
-person.run(5)  # "Run by 5"
 ```
 ----------
 

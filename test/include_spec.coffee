@@ -27,19 +27,3 @@ describe "Include", ->
     expect(person.fullDescription()).to.eq("Foo - 10 from Bar")
     expect(person.anotherDescription()).to.eq("Foo of Bar")
 
-  it "recieves multiple modules", ->
-    firstModule = @module
-    secondModule =
-      shortDescription: ->
-        "#{@name} (#{@age}), #{@city}"
-
-    class Person extends Caphe
-      @include firstModule, secondModule
-
-      constructor: (@name, @age, @city) ->
-
-    person = new Person("Foo", 10, "Bar")
-
-    expect(person.fullDescription()).to.eq("Foo - 10 from Bar")
-    expect(person.shortDescription()).to.eq("Foo (10), Bar")
-    expect(person.anotherDescription()).to.eq("Foo of Bar")
