@@ -9,9 +9,12 @@ class Caphe
 
 
   @include: (module, names...) ->
-    _ = {}
-    _[name] = module[name] for name in names
-    @mixin(@prototype, if names.length is 0 then module else _)
+    _ = module
+    if names.length isnt 0
+      _ = {}
+      _[name] = module[name] for name in names
+
+    @mixin(@prototype, _)
 
 
   @attrAccessor: (fields...) ->
@@ -19,24 +22,27 @@ class Caphe
 
 
   @CONST: (constants) ->
+    _proto = Caphe.prototype
     for key, value of constants
-      @prototype[key.toUpperCase()] = Caphe.prototype._createConstantMethod(value)
+      @prototype[key.toUpperCase()] = _proto._createConstantMethod(value)
 
 
   @forward: (consumer, providers...) ->
+    _proto = Caphe.prototype
     for provider in providers
       for k, v of provider
         if provider.hasOwnProperty(k)
-          consumer[k] = Caphe.prototype._createForwardMethod(k, provider)
+          consumer[k] = _proto._createForwardMethod(k, provider)
 
     consumer
 
 
   @delegate: (consumer, providers...) ->
+    _proto = Caphe.prototype
     for provider in providers
       for k, v of provider
         if provider.hasOwnProperty(k)
-          consumer[k] = Caphe.prototype._createDelegateMethod(consumer, k, provider)
+          consumer[k] = _proto._createDelegateMethod(consumer, k, provider)
 
     consumer
 
