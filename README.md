@@ -1,6 +1,8 @@
 Caphe
 =====
 
+[![Build Status](https://travis-ci.org/drabiter/caphe.svg?branch=master)](https://travis-ci.org/drabiter/caphe)
+
 Various design utils for [htpp://coffeescript.org](CoffeeScript). Implementation of Reg Braithwaite's [article](http://raganwald.com/2014/04/10/mixins-forwarding-delegation.html).
 
 ## Features
