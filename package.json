@@ -4,7 +4,7 @@
   "description": "various design utils",
   "main": "lib/caphe.coffee",
   "scripts": {
-    "test": "coffee -c lib/caphe.coffee && NODE_ENV=test ./node_modules/.bin/mocha -C --recursive --compilers coffee:coffee-script/register test/"
+    "test": "make test.coverage"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,9 @@
     "mocha": "1.18.2",
     "chai": "1.9.1",
     "sinon": "1.9.1",
-    "coffee-script": "latest"
+    "coffee-script": "latest",
+    "coveralls": "^2.11.1",
+    "istanbul": "^0.3.0"
   },
   "homepage": "https://github.com/drabiter/caphe"
 }
