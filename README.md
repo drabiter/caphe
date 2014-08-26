@@ -1,8 +1,16 @@
 Caphe
 =====
 
-[![Build Status](https://travis-ci.org/drabiter/caphe.svg?branch=master)](https://travis-ci.org/drabiter/caphe)
-[![Coverage Status](https://img.shields.io/coveralls/drabiter/caphe.svg)](https://coveralls.io/r/drabiter/caphe)
+[![Build Status][travis-img]][travis-url]
+[![Coverage Status][coveralls-img]][coveralls-url]
+[![NPM Download][npm-img]][npm-url]
+
+[travis-img]: http://img.shields.io/travis/drabiter/caphe.svg?style=flat-square
+[travis-url]: https://travis-ci.org/drabiter/caphe
+[coveralls-img]: http://img.shields.io/coveralls/drabiter/caphe.svg?style=flat-square
+[coveralls-url]: https://coveralls.io/r/drabiter/caphe?branch=master
+[npm-img]: http://img.shields.io/npm/v/npm.svg?style=flat-square
+[npm-url]: https://www.npmjs.org/package/caphe
 
 Various design utils for [htpp://coffeescript.org](CoffeeScript). Implementation of Reg Braithwaite's [article](http://raganwald.com/2014/04/10/mixins-forwarding-delegation.html).
 
