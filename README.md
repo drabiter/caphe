@@ -12,6 +12,8 @@ Caphe
 [npm-img]: http://img.shields.io/npm/v/npm.svg?style=flat-square
 [npm-url]: https://www.npmjs.org/package/caphe
 
+[![NPM](https://nodei.co/npm/caphe.png?downloads=true&stars=true)](https://nodei.co/npm/caphe/)
+
 Various design utils for [htpp://coffeescript.org](CoffeeScript). Implementation of Reg Braithwaite's [article](http://raganwald.com/2014/04/10/mixins-forwarding-delegation.html).
 
 ## Features
